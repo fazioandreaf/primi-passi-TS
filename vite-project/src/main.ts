@@ -70,3 +70,25 @@ ds(new admin())
 // }
 // const c:circle={r:30};
 // ds1(c)
+
+
+
+// in operator per descriminare attraverso una proprietà che non è presente in quella classe
+class admin2{
+  id:number;
+  permission:string;
+}
+class guest2{
+  id:number;
+  city:string;
+  emil:string;
+}
+function ds2(v:guest2|admin2){
+  if(permission in v){
+    v.id
+  }else{
+
+    v.id
+  }
+}
+ds2(new admin2())
