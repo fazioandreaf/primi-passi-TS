@@ -24,4 +24,4 @@ function dosomething(v:number|string)
     return console.log(v*v)
   }else return console.log(v.toLowerCase)
 }
-dosomething(100)
+dosomething(1000)
