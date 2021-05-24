@@ -17,6 +17,10 @@ app.innerHTML = `
 // }
 // type User = userData & Useraddes;
 // let user:User;
+
+
+
+// typeof é solo con dei elementi non primitii
 function dosomething(v:number|string)
 {
   //queste si chiamano guardie
@@ -44,3 +48,25 @@ function ds(v:guest|admin){
   }
 }
 ds(new admin())
+
+
+
+// uso kind per aver una proprieta comune ad entrambi e eseguire un if
+// class rectangle{
+//   kind:'rectangle';
+//   id:number;
+//   x:number;
+// }
+// class circle{
+//   kind:'circle';
+//   r:number;
+// }
+// function ds1(shape:rectangle|circle){
+//   if(shape.kind==="rectangle"){
+//     shape.
+//   }else{
+
+//   }
+// }
+// const c:circle={r:30};
+// ds1(c)
