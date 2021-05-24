@@ -25,3 +25,22 @@ function dosomething(v:number|string)
   }else return console.log(v.toLowerCase)
 }
 dosomething(1000)
+
+class admin{
+  id:number;
+  permission:string;
+}
+class guest{
+  id:number;
+  city:string;
+  emil:string;
+}
+function ds(v:guest|admin){
+  if(v instanceof guest){
+    v.email
+  }else{
+
+    v.permission
+  }
+}
+ds(new admin())
