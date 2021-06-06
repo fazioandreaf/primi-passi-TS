@@ -205,17 +205,29 @@ app.innerHTML = `
 // load<Users[]>('https://jsonplaceholder.typicode.com/users')
 // .then(res=>console.log(res[0].name))
 //Utilizzo tramite una classe
-class Fetcher{
-  async load<T>(url:string):Promise<T>{
-    const response= await fetch(url)
-    return response.json()
-  }
-}
-type TVSeries ={
-  score:number;
-  show:any;
-}
-const f= new Fetcher();
-f.load<TVSeries[]>('https://api.tvmaze.com/search/shows?q=cats')
-.then(res=>console.log(res))
+// class Fetcher{
+//   async load<T>(url:string):Promise<T>{
+//     const response= await fetch(url)
+//     return response.json()
+//   }
+// }
+// type TVSeries ={
+//   score:number;
+//   show:any;
+// }
+// const f= new Fetcher();
+// f.load<TVSeries[]>('https://api.tvmaze.com/search/shows?q=cats')
+// .then(res=>console.log(res))
+
+//quell as const rende la variabile sono in lettura
+const values=[10,20] as const;
+values[0]=5;
+console.log(values)
+const Colors={
+  red:'RED',
+  green:'Green',
+  blue:'BLUE',
+} as const;
+Colors.blue= 'purple';
+console.log(Colors);
 
