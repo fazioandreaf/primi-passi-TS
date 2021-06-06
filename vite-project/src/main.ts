@@ -127,6 +127,9 @@ app.innerHTML = `
 
 
 // specifichiamo i nostri generic
+interface Car {
+  model:string;
+}
 class DataCollection<T>{
   private _data=[];
    add=(item:T)=>this._data.push(item);
@@ -137,7 +140,10 @@ const container= new DataCollection<number>()
 container.add(1);
 container.add(10);
 container.add('hello');
-// Cosi mi ritorna un oggetto che contiene un array
 console.log(container.getData()[0])
-// cosi mi ritorna un array
-con
+// l interfaccia è un oggetto che presenta delle chiavi e dichiariamo il tipo di dato a cui deve esse affiancato
+const concessionario= new DataCollection<Car>()
+concessionario.add({model:'Fiat'});
+console.log(concessionario.getData())
+
+
