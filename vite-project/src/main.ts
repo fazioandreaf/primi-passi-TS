@@ -101,3 +101,29 @@ app.innerHTML = `
 //   ds2({id:1,city:'',email:'ilfazio@gmail.com'})
 //   // in questo vado da admin
 //   ds2({id:1,permission:'autorizzato'})
+
+// 6/6
+// class DataCollection{
+//   private _data=[];
+//   // non sto tipizzando i metodi, per farlo dovremmo mettere ex item=number /string ma non sto veramente restringendo la scelta
+//   add(item){
+//     this._data.push(item);
+//   }
+//   getData(){
+//     return this._data;
+//   }
+//   // Metodo arrow
+//   // add=(item)=>this._data.push(item);
+//   // getData=()->this._data;
+// }
+// // posso inizializzare il costruttore inserndo numeri nella riga sottostante e dichiarando il costruttore dentro la classe
+// const container= new DataCollection()
+// container.add(1)
+// container.add(10)
+// // Cosi mi ritorna un oggetto che contiene un array
+// console.log(container)
+// // cosi mi ritorna un array
+// console.log(container.getData())
+
+
+// specifichiamo i nostri generic
