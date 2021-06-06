@@ -127,23 +127,56 @@ app.innerHTML = `
 
 
 // specifichiamo i nostri generic
-interface Car {
-  model:string;
-}
-class DataCollection<T>{
-  private _data=[];
-   add=(item:T)=>this._data.push(item);
-   getData=():T[]=>this._data;
-}
-// la T passo il tipo di dato, ex con numbero ho un errore sulla riga 139 e ho i consigli sulle funzione da utilizzare sull elemento
-const container= new DataCollection<number>()
-container.add(1);
-container.add(10);
-container.add('hello');
-console.log(container.getData()[0])
-// l interfaccia è un oggetto che presenta delle chiavi e dichiariamo il tipo di dato a cui deve esse affiancato
-const concessionario= new DataCollection<Car>()
-concessionario.add({model:'Fiat'});
-console.log(concessionario.getData())
+// interface Car {
+//   model:string;
+// }
+// class DataCollection<T>{
+//   private _data=[];
+//    add=(item:T)=>this._data.push(item);
+//    getData=():T[]=>this._data;
+// }
+// // la T passo il tipo di dato, ex con numbero ho un errore sulla riga 139 e ho i consigli sulle funzione da utilizzare sull elemento
+// const container= new DataCollection<number>()
+// container.add(1);
+// container.add(10);
+// container.add('hello');
+// console.log(container.getData()[0])
+// // l interfaccia è un oggetto che presenta delle chiavi e dichiariamo il tipo di dato a cui deve esse affiancato
+// const concessionario= new DataCollection<Car>()
+// concessionario.add({model:'Fiat'});
+// console.log(concessionario.getData())
 
 
+// class Utility{
+//   getValues<T>(array):T[]{
+//    return Object.values(array) 
+//   }
+// }
+// const util: Utility = new Utility();
+// const number=util.getValues<number>({x:15,y:15});
+// // const obj={x:10,y:10}
+// // console.log(Object.entries(obj))
+
+// 
+interface Guest{
+  name:string;
+  data:{
+    city:string;
+    gender:'M'|'F';
+  }
+}interface Admin{
+  name:string;
+  data:{
+    permission:string;
+    email:string;
+  }
+}
+// usare il generic per tipizzare il profilo e usare tutte le intefacce
+type User<T> = {
+  id: number;
+  profile: T;
+}
+const guest: User<Guest>;
+guest.profile.data.city
+let Admin: User<Admin>;
+Admin.profile.data.permission
