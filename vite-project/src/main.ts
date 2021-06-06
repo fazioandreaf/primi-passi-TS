@@ -157,26 +157,65 @@ app.innerHTML = `
 // // const obj={x:10,y:10}
 // // console.log(Object.entries(obj))
 
-// 
-interface Guest{
-  name:string;
-  data:{
-    city:string;
-    gender:'M'|'F';
-  }
-}interface Admin{
-  name:string;
-  data:{
-    permission:string;
-    email:string;
+// // usare il generic per tipizzare il profilo e usare tutte le intefacce
+// interface Guest{
+//   name:string;
+//   data:{
+//     city:string;
+//     gender:'M'|'F';
+//   }
+// }interface Admin{
+//   name:string;
+//   data:{
+//     permission:string;
+//     email:string;
+//   }
+// }
+// type User<T> = {
+//   id: number;
+//   profile: T;
+// }
+// const guest: User<Guest>;
+// guest.profile.data.city
+// let Admin: User<Admin>;
+// Admin.profile.data.permission
+
+// classico metodo per prendere dati da un api
+// fetch('https://api.tvmaze.com/search/shows?q=cats')
+// .then(res=>res.json())
+// // .then(res => console.log(res.json()))
+// .then(res => console.log(res))
+//
+// type TVSeries ={
+//   score:number;
+//   show:any;
+// }
+// // generalizzo la chiamata con una funzione
+// function load<T>(url:string):Promise<T>{
+//   return fetch(url)
+//   .then(res=>res.json())
+// }
+// load<TVSeries[]>('https://api.tvmaze.com/search/shows?q=cats')
+// .then(res=>console.log(res))
+
+// interface User {
+//   id:number;
+//   name:string;
+// }
+// load<Users[]>('https://jsonplaceholder.typicode.com/users')
+// .then(res=>console.log(res[0].name))
+//Utilizzo tramite una classe
+class Fetcher{
+  async load<T>(url:string):Promise<T>{
+    const response= await fetch(url)
+    return response.json()
   }
 }
-// usare il generic per tipizzare il profilo e usare tutte le intefacce
-type User<T> = {
-  id: number;
-  profile: T;
+type TVSeries ={
+  score:number;
+  show:any;
 }
-const guest: User<Guest>;
-guest.profile.data.city
-let Admin: User<Admin>;
-Admin.profile.data.permission
+const f= new Fetcher();
+f.load<TVSeries[]>('https://api.tvmaze.com/search/shows?q=cats')
+.then(res=>console.log(res))
+
