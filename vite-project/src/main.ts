@@ -127,3 +127,17 @@ app.innerHTML = `
 
 
 // specifichiamo i nostri generic
+class DataCollection<T>{
+  private _data=[];
+   add=(item:T)=>this._data.push(item);
+   getData=():T[]=>this._data;
+}
+// la T passo il tipo di dato, ex con numbero ho un errore sulla riga 139 e ho i consigli sulle funzione da utilizzare sull elemento
+const container= new DataCollection<number>()
+container.add(1);
+container.add(10);
+container.add('hello');
+// Cosi mi ritorna un oggetto che contiene un array
+console.log(container.getData()[0])
+// cosi mi ritorna un array
+con
